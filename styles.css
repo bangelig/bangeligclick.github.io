@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #8a2be2, #00bfff, #ff69b4);
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+.click-display {
+    position: absolute;
+    top: -60px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    font-size: 1.5em; /* Medium font size */
+    color: #333; /* Text color */
+    font-weight: bold;
+}
+
+#clickIcon {
+    width: 40px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 10px; /* Spacing between icon and text */
+}
+
+#gameArea {
+    position: relative;
+}
+
+img {
+    width: 300px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animation for the image */
+img.clicked {
+    animation: shake 0.6s ease;
+}
+
+/* Shake animation */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+/* Light effect */
+img::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+img.clicked::before {
+    opacity: 1;
+    animation: lightEffect 0.6s ease;
+}
+
+/* Light effect animation */
+@keyframes lightEffect {
+    0% { transform: scale(0.5); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+#message {
+    font-size: 1.5em;
+    color: green;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+#questionArea {
+    margin-top: 20px;
+}
+
+#questionText {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#answer {
+    font-size: 1em;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+#submitAnswer {
+    font-size: 1em;
+    padding: 5px 10px;
+}
+
+#feedbackMessage {
+    font-size: 1.2em;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.footer {
+    margin-top: 20px;
+}
+
+.footer a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
